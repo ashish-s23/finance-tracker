@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import { Link, useNavigate } from "react-router-dom";
+import { FaWallet } from "react-icons/fa";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -25,48 +26,81 @@ function Register() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <form
-        onSubmit={handleRegister}
-        className="bg-white p-8 rounded-xl shadow-lg w-96"
-      >
-        <h1 className="text-3xl font-bold text-center mb-6">
-          Create Account
-        </h1>
+    <div className="min-h-screen flex">
 
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full border p-3 rounded-lg mb-4"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      {/* Left Side */}
+      <div className="hidden md:flex w-1/2 bg-gradient-to-br from-blue-500 to-indigo-700 items-center justify-center">
+        <div className="text-center text-white px-10">
+          <FaWallet
+            size={80}
+            className="mx-auto mb-6"
+          />
 
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full border p-3 rounded-lg mb-4"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <h1 className="text-5xl font-bold mb-4">
+            Finance Tracker
+          </h1>
 
-        <button
-          type="submit"
-          className="w-full bg-green-600 text-white p-3 rounded-lg"
+          <p className="text-xl">
+            Create your account and start managing
+            your finances smarter.
+          </p>
+        </div>
+      </div>
+
+      {/* Right Side */}
+      <div className="w-full md:w-1/2 flex items-center justify-center bg-gray-100 dark:bg-black">
+
+        <form
+          onSubmit={handleRegister}
+          className="bg-white dark:bg-zinc-900 p-8 rounded-3xl shadow-2xl w-[400px]"
         >
-          Register
-        </button>
+          <div className="flex justify-center mb-4">
+            <FaWallet
+              size={50}
+              className="text-blue-500"
+            />
+          </div>
 
-        <p className="text-center mt-4">
-          Already have an account?{" "}
-          <Link
-            to="/"
-            className="text-blue-600 font-semibold"
+          <h2 className="text-3xl font-bold text-center mb-6 text-black dark:text-white">
+            Create Account
+          </h2>
+
+          <input
+            type="email"
+            placeholder="Enter Email"
+            className="w-full p-3 rounded-xl border mb-4 outline-none"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <input
+            type="password"
+            placeholder="Enter Password"
+            className="w-full p-3 rounded-xl border mb-4 outline-none"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <button
+            type="submit"
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-semibold"
           >
-            Login
-          </Link>
-        </p>
-      </form>
+            Register
+          </button>
+
+          <p className="text-center mt-5 text-gray-600 dark:text-gray-300">
+            Already have an account?{" "}
+            <Link
+              to="/"
+              className="text-blue-600 font-semibold"
+            >
+              Login
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 }
