@@ -48,11 +48,11 @@ function Login() {
       </div>
 
       {/* Right Section */}
-      <div className="w-full md:w-1/2 flex items-center justify-center bg-gray-100 dark:bg-black">
+     <div className="w-full md:w-1/2 flex items-center justify-center bg-white">
 
         <form
           onSubmit={handleLogin}
-          className="bg-white dark:bg-zinc-900 p-8 rounded-3xl shadow-2xl w-[400px]"
+         className="bg-white border border-gray-200 p-8 rounded-3xl shadow-2xl w-full max-w-md"
         >
           <div className="flex justify-center mb-4">
             <FaWallet
@@ -61,14 +61,14 @@ function Login() {
             />
           </div>
 
-          <h2 className="text-3xl font-bold text-center mb-6 text-black dark:text-white">
+          <h2 className="text-3xl font-bold text-center mb-6 text-gray-900">
             Welcome Back
           </h2>
 
           <input
             type="email"
             placeholder="Enter Email"
-            className="w-full p-3 rounded-xl border mb-4 outline-none"
+            className="w-full p-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder-gray-500 mb-4 outline-none focus:ring-2 focus:ring-green-500"
             value={email}
             onChange={(e) =>
               setEmail(e.target.value)
@@ -79,7 +79,7 @@ function Login() {
           <input
             type="password"
             placeholder="Enter Password"
-            className="w-full p-3 rounded-xl border mb-4 outline-none"
+           className="w-full p-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder-gray-500 mb-4 outline-none focus:ring-2 focus:ring-green-500"
             value={password}
             onChange={(e) =>
               setPassword(e.target.value)
@@ -89,16 +89,16 @@ function Login() {
 
           <button
             type="submit"
-            className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-semibold"
+           className="text-center mt-5 text-gray-600"
           >
             Login
           </button>
 
-          <p className="text-center mt-5 text-gray-600 dark:text-gray-300">
+          <p className="text-center mt-5 text-gray-600 dark:text-gray-600">
             Don't have an account?{" "}
             <Link
               to="/register"
-              className="text-green-600 font-semibold"
+               className="text-blue-600 font-semibold"
             >
               Register
             </Link>
